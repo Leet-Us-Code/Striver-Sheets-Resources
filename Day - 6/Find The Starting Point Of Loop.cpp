@@ -32,3 +32,29 @@ public:
         return slow;
     }
 };
+
+
+// Hari's 
+
+class Solution {
+public:
+    ListNode *detectCycle(ListNode *head) {
+        ListNode *slow = head, *fast = head;
+        
+        while(slow && fast && fast->next){
+            slow = slow->next;
+            fast = fast->next->next;
+            
+            if(slow == fast){
+                while(slow && head){
+                    if(slow == head) return slow;
+                    else {
+                        slow = slow->next;
+                        head = head->next;
+                    }
+                }
+            }
+        }
+        return nullptr;
+    }
+};
