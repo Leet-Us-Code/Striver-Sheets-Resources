@@ -43,3 +43,58 @@ public:
         else return findInter(headB, headA, d);
     }
 };
+
+//Siddharth's solution 
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    int getSize(ListNode *head)
+    {
+        ListNode *ptr = head;
+        int size = 0;
+        while(ptr != NULL)
+        {
+            size++;
+            ptr = ptr->next;
+        }
+        return size;
+    }
+    ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
+        int a = getSize(headA);
+        int b = getSize(headB);
+        ListNode *ptra = headA;
+        ListNode *ptrb = headB;
+        if(a > b)
+        {
+            int c = a-b;
+            while(ptra != NULL && c--)
+            {
+                ptra = ptra->next;
+            }
+        }
+        else
+        {
+            int c = b - a;
+            while(ptrb != NULL && c--)
+            {
+                ptrb = ptrb->next;
+            }
+        }
+        while(ptra != NULL && ptrb != NULL)
+        {
+            if(ptra == ptrb)
+                return ptra;
+            ptra = ptra->next;
+            ptrb = ptrb->next;
+        }
+        return NULL;
+    }
+};
