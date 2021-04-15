@@ -38,6 +38,7 @@ public:
                 else 
                     l++;
             }
+            //remove duplicates here for the case [x,x,x,-1,-1,-1]..if you put this loop in the starting it will just quit the loop without considering any of the -1's
             while(i < nums.size() - 1 && nums[i] == nums[i+1])
                 i++;
         }
