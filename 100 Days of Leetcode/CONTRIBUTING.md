@@ -10,3 +10,5 @@
 - **No spam codes/incomplete codes will be allowed**
 
 > 100 Days of Leetcode -> Create folder "Day - x" (same format) -> All contributors add the Leetcode questions they did on that day. No overlaps. If 2 people solved the same qn, one of you can decide to commit and the other one should not (unless it is a different method. See point 5)
+
+URL of List followed: 
