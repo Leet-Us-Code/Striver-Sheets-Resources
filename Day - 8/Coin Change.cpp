@@ -1,5 +1,6 @@
 // Hari
 
+//DP solution
 int coinChange(vector<int>& coins, int amount) {
         int dp[amount + 1];
         sort(coins.begin(), coins.end(), greater<int>());
@@ -18,4 +19,21 @@ int coinChange(vector<int>& coins, int amount) {
         }
         
         return dp[amount] == INT_MAX? -1: dp[amount];
+    }
+
+// Recursion
+
+int coinChange(vector<int>& coins, int amount) {
+        int count = 0;
+        sort(coins.begin(), coins.end());
+        if(amount == 0) return 0;
+        int N = coins.size();
+        for(int i = N-1; i>=0; i--){
+            while(amount >= coins[i]){
+                count++;
+                amount -= coins[i];
+            }
+        }
+        if(count == 0 || amount > 0) return -1;
+        return count;
     }
