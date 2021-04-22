@@ -22,7 +22,7 @@ public:
             return;
         } 
         
-        // traverse all cols in that row, place queen and check if clash with left or             right diagonal, or column
+        // traverse all cols in that row, place queen and check if clash with left or right diagonal, or column
         for(int j = 0; j<board.size(); j++){
             if(diag1.find(i+j) == diag1.end() && diag2.find(j-i) == diag2.end()
               && vert.find(j) == vert.end()){
