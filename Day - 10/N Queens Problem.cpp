@@ -115,3 +115,56 @@ public:
         return sol;
     }
 };
+
+//not working soln 
+class Solution {
+public:
+    bool solve(vector<vector<string>> &sol, vector<string> board, bool rows[], bool ud[], bool ld[], int col)
+    {
+        if(col == board.size())
+        {
+            sol.push_back(board);
+        }
+        for(int row = 0; row < board.size(); row++)
+        {
+            if(rows[col] == false && ud[row+col] == false && ld[row-col+ board.size()-1] == false)
+            {
+                board[row][col] = 'Q';
+                rows[col] = true;
+                ud[row+col] = true;
+                ld[row-col+ board.size()-1] = true;
+                if(solve(sol, board, rows, ud, ld, col+1))
+                    return true;
+                board[row][col] = '.';
+                rows[col] = false;
+                ud[row+col] = false;
+                ld[row-col+ board.size()-1] = false;
+            }
+        }
+        return false;
+    }
+    vector<vector<string>> solveNQueens(int n) {
+        vector<string> board;
+        for(int i = 0; i < n; i++)
+        {
+            string s;
+            for(int j = 0; j < n; j++)
+            {
+                s.push_back('.');
+            }
+            board.push_back(s);
+        }
+        vector<vector<string>> sol;
+        bool ld[100];
+        bool ud[100], rows[100];
+        for(int i = 0; i < 100; i++)
+        {
+            ld[i] = false;
+            ud[i] = false;
+            rows[i] = false;
+        }
+        
+        solve(sol, board, rows, ud, ld, 0);
+        return sol;
+    }
+};
