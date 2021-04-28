@@ -1,11 +1,8 @@
+//Sid
 class Solution{
     public:
     int kthElement(int arr1[], int arr2[], int n, int m, int k)
     {
-        //OM GAN GANAPATHAYE NAMO NAMAH 
-        //JAI SHRI RAM 
-        //JAI BAJRANGBALI 
-        //AMME NARAYANA, DEVI NARAYANA, LAKSHMI NARAYANA, BHADRE NARAYANA
         int p1 = 0, p2 = 0;
         int cntr = 0;
         while(p1 < n && p2 < m)
