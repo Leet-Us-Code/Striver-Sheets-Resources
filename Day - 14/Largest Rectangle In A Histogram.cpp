@@ -76,8 +76,7 @@ public:
 };
 
 // Hari's 
-// much shorter. Crucial sum. Different method than sid's.
-
+// Instead of keeping 2 arrays for finding next smaller element on left, and right of each element (see above), here I just calc width and compute using one stack only
 int largestRectangleArea(vector<int>& heights) {
         heights.push_back(0);
             
