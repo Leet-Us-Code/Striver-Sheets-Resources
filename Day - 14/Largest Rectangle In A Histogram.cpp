@@ -1,4 +1,5 @@
 //Sid's solution 
+
 class Solution {
 public:
     int largestRectangleArea(vector<int>& heights) {
@@ -73,3 +74,28 @@ public:
         return maxArea;
     }
 };
+
+// Hari's 
+// much shorter. Crucial sum. Different method than sid's.
+
+int largestRectangleArea(vector<int>& heights) {
+        heights.push_back(0);
+            
+        const int sizeht = heights.size();
+        stack<int> stk;
+        int i = 0, maxArea = 0;
+            
+        while (i < sizeht) {
+            // if either stk empty or curr ht > stack's top, then push it
+            if (stk.empty() || heights[i] >= heights[stk.top()]) stk.push(i++);
+            else {
+                // if curr ht < stk top, pop top, find width and calc area
+                // note there is no pushing in this case
+                // dry run it. First maxArea = 6 on popping 6*1. And then 2 is not inserted. Instead go to ht = 3. 3<5(stack top). 5(idx of 3)-2(idx of 5)-1 = 2. 2*5 = 10 -> maxArea
+                int h = stk.top();
+                stk.pop();
+                maxArea = max(maxArea, heights[h] * (stk.empty() ? i : i - stk.top() - 1));
+            }
+        }
+        return maxArea;
+    }
