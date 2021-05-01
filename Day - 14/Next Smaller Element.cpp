@@ -1,3 +1,5 @@
+// Sid
+
 #include<bits/stdc++.h>
 using namespace std;
 int main()
@@ -43,4 +45,49 @@ int main()
     }
     for(int i = 0; i < n; i++)
     cout << nse[i] << " ";
+}
+
+// Hari
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	int n;
+	vector<int> a;
+	
+	cin >> n;
+	
+	for(int i = 0; i<n; i++){
+	    int temp;
+	    cin >> temp;
+	    a.push_back(temp);
+	}
+	
+	int NSE[1000];
+	stack<int> s;
+	
+	for(int i = 0; i<n; i++){
+	    if(s.empty()){
+	        s.push(i); // pushing the index of element
+	    }
+	    else if(a[s.top()] > a[i]){
+	        while(!s.empty() && a[s.top()] > a[i]){
+	            NSE[s.top()] = a[i];
+	            s.pop();
+	        }
+	        s.push(i);
+	    }
+	    else s.push(i);
+	}
+	
+	while(!s.empty()){
+	    // check if remaining elements exist and for them in NSE assign -1
+	    NSE[s.top()] = -1;
+	    s.pop();
+	}
+	
+	for(int i = 0; i<n; i++){
+	    cout << NSE[i] << " ";
+	}
 }
