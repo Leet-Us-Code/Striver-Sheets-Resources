@@ -1,4 +1,4 @@
-//Sid 
+// Sid 
 class Solution {
 public:
     string longestPalindrome(string s) {
@@ -40,3 +40,37 @@ public:
         return s.substr(startInd, maxLen);
     }
 };
+
+// Hari
+
+string longestPalindrome(string s) {
+        int N = s.size();
+        int maxLen = 1; // as a single letter is also a palindrome
+        int start = 0; // assigning the start of the longest palindrome
+        
+        for(int i = 0; i<N; i++){
+            // check for odd size palindrome from this index
+            int l = i - 1;
+            int r = i + 1;
+            while(l >= 0 && r < N && s[l] == s[r]){
+                if(r - l + 1 > maxLen){
+                    start = l;
+                    maxLen = r - l + 1;
+                }
+                l-- ; r++;
+            }
+            
+            // check for even size palindrome from this index
+            l = i;
+            r = i + 1;
+            while(l >= 0 && r < N && s[l] == s[r]){
+                if(r - l + 1 > maxLen){
+                    start = l;
+                    maxLen = r - l + 1;
+                }
+                l-- ; r++;
+            }
+        }
+        
+        return s.substr(start, maxLen);
+    }
