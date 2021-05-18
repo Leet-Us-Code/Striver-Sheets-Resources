@@ -29,10 +29,6 @@ public:
 //Sid's solution
 class Solution {
 public:
-    //OM GAN GANAPATHAYE NAMO NAMAH 
-    //JAI SHRI RAM 
-    //JAI BAJRANGBALI 
-    //AMME NARAYANA, DEVI NARAYANA, LAKSHMI NARAYANA, BHADRE NARAYANA
     string helper(string s1, string s2)
     {
         int cntr = 0;
