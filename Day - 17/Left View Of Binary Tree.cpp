@@ -1,4 +1,4 @@
-//Function to return a list containing elements of left view of the binary tree.
+//Sid solution
 void helper(Node *root, int level, int &maxLevel, vector<int> &res)
 {
     if(root == NULL)
