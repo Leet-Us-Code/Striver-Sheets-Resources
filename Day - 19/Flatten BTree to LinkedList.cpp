@@ -26,10 +26,6 @@ public:
 
 //Sid 
 void flatten(TreeNode* root) {
-        //OM GAN GANAPATHAYE NAMO NAMAH 
-        //JAI SHRI RAM 
-        //JAI BAJRANGBALI 
-        //AMME NARAYANA, DEVI NARAYANA, LAKSHMI NARAYANA, BHADRE NARAYANA
         if(root == NULL || (root->left == NULL && root->right == NULL))
             return;
         if(root->left != NULL)
