@@ -12,3 +12,16 @@ public:
         else return isSameTree(p->left, q->left) && isSameTree(p->right, q->right); // nodes are the same. Now compare their subtrees and if any one of them don't match then invalid
     }
 };
+
+//Sid 
+bool isSameTree(TreeNode* p, TreeNode* q) {
+        if(p == NULL && q == NULL)
+            return true;
+        else if(p == NULL || q == NULL)
+            return false;
+        bool l = isSameTree(p->left, q->left);
+        bool r = isSameTree(p->right, q->right);
+        if(p->val == q->val && l && r)
+            return true;
+        return false;
+    }
