@@ -23,3 +23,28 @@ public:
         helper(root);
     }
 };
+
+//Sid 
+void flatten(TreeNode* root) {
+        //OM GAN GANAPATHAYE NAMO NAMAH 
+        //JAI SHRI RAM 
+        //JAI BAJRANGBALI 
+        //AMME NARAYANA, DEVI NARAYANA, LAKSHMI NARAYANA, BHADRE NARAYANA
+        if(root == NULL || (root->left == NULL && root->right == NULL))
+            return;
+        if(root->left != NULL)
+        {
+            flatten(root->left);
+            TreeNode *temp = root->right;
+            root->right = root->left;
+            root->left = NULL;
+            TreeNode *cur = root->right;
+            while(cur->right != NULL)
+            {
+                cur = cur->right;
+            }
+            cur->right = temp;
+            
+        }
+        flatten(root->right);
+    }
