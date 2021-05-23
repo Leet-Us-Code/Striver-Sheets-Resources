@@ -33,3 +33,39 @@ public:
         return root;  
     }
 };
+
+
+//Sid 
+class Solution {
+public:
+    TreeNode *build(vector<int> postorder, vector<int> inorder, int &postInd, int l, int r)
+    {
+        if(postInd < 0 || r < l)
+            return NULL;
+        TreeNode *root = new TreeNode(postorder[postInd]);
+        postInd--;
+        if(l == r)
+            return root;
+        int i;
+        for(i = 0; i < inorder.size(); i++)
+        {
+            if(inorder[i] == root->val)
+                break;
+        }
+        root->right = build(postorder, inorder, postInd, i+1, r);
+        root->left = build(postorder, inorder, postInd, l, i-1);
+        
+        
+        
+        return root;
+    }
+    TreeNode* buildTree(vector<int>& inorder, vector<int>& postorder) {
+        //OM GAN GANAPATHAYE NAMO NAMAH 
+        //JAI SHRI RAM 
+        //JAI BAJRANGBALI 
+        //AMME NARAYANA. DEVI NARAYANA, LAKSHMI NARAYANA, BHADRE NARAYANA
+        int postInd = postorder.size() - 1;
+        int l = 0, r = inorder.size() - 1;
+        return build(postorder, inorder, postInd, l, r);
+    }
+};
