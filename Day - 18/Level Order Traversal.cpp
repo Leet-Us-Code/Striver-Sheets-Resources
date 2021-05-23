@@ -20,3 +20,36 @@ vector<vector<int>> levelOrder(TreeNode* root) {
         }
         return res;
     }
+
+//Sid 
+int height(TreeNode *root)
+    {
+        if(root == NULL)
+            return 0;
+        int lh = height(root->left);
+        int rh = height(root->right);
+        return max(lh,rh)+1;
+    }
+    void helper(TreeNode *root, int level, vector<int> &res)
+    {
+        if(root == NULL)
+            return;
+        if(level == 0)
+        {
+            res.push_back(root->val);
+            return;
+        }
+        helper(root->left, level-1, res);
+        helper(root->right, level-1, res);
+    }
+    vector<vector<int>> levelOrder(TreeNode* root) {
+        vector<vector<int>> x;
+        int h = height(root);
+        for(int i = 0; i < h; i++)
+        {
+            vector<int> temp;
+            helper(root, i, temp);
+            x.push_back(temp);
+        }
+        return x;
+    }
