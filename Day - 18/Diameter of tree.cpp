@@ -18,3 +18,19 @@ int helper(TreeNode* curr, int &d){
         return maxDia;
         
     }
+
+//Sid 
+int diameter(TreeNode* root, int &h)
+    {
+        if(root == NULL)
+            return 0;
+        int lh = 0, rh = 0;
+        int ld = diameter(root->left, lh);
+        int rd = diameter(root->right, rh);
+        h = max(lh, rh) + 1;
+        return max(lh+rh, max(ld, rd));
+    }
+    int diameterOfBinaryTree(TreeNode* root) {
+        int h = 0;
+        return diameter(root, h);
+    }
