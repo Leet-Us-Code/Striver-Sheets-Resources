@@ -18,7 +18,7 @@ class Solution
                 if(dfsVis[it] == 1) return true;
             }
         }
-        // after this node traversal is over, make its dfsVis 0
+        // after this node traversal is over and there are no more adj nodes for it, make its dfsVis 0. vis will NOT change
         dfsVis[node] = 0;
         return false; // pass this value higher recursive levels
     }
