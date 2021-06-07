@@ -15,7 +15,7 @@ int main() {
 	int u,v,wt; // from node, to node and wt btw them
 	for(int i = 0; i<m; i++){
 	    cin >> u >> v >> wt;
-	    graph[u].push_back({v,wt});
+	    graph[u].push_back({v,wt}); // graph[u].push_back(make_pair(v,wt));
 	    graph[v].push_back({u,wt}); // both as undirected graph 
 	}
 	
