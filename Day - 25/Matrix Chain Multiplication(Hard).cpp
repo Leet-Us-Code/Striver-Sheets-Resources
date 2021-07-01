@@ -30,7 +30,7 @@ public:
         // we will be using memoization using DP to store already calculated costs
         vector<vector<int>> dp(N, vector<int> (N, -1)); 
         // we can divide in N-1 places starting from 1
-        // A(BCD) , AB(CD), ABC(D) where first ( is at 1,2,3 places resp.
+        // A(BCD) , AB(CD), ABC(D) where first ( is at 1,2,3 places resp. )
         return helper(1, N-1, arr, dp);
     }
 };
