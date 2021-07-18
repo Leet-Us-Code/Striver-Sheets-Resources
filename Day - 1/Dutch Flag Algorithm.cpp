@@ -15,7 +15,8 @@ public:
             else
             {
                 // if it is 2
-                swap(A[mid], A[hi--]); // no increment of mid. Only hi decrement
+                swap(A[mid], A[hi--]); // no increment of mid. Only hi decrement as we have included mid condt in 0 and 1 case, and sometimes we get a 0 after swapping
+                // with hi which might not get swapped with low if we incremented mid here also.
             }
         }
     }
