@@ -13,11 +13,11 @@ int minPathSum(vector<vector<int>>& grid) {
         // now find the minval from top and left (as path can move down and right resp)
         for(int i = 1; i<m; i++){
             for(int j = 1; j<n; j++){
-                sumMat[i][j] = min(sumMat[i-1][j], sumMat[i][j-1]) + grid[i][j];
+                sumMat[i][j] = min(sumMat[i-1][j], sumMat[i][j-1]) + grid[i][j]; // leetcode qn is Min sum path but SDE sheet is asking max. Just replace min() with max()
             }
         }
         
         return sumMat[m-1][n-1]; // last row last col element in bottom right will have final minSumPath val
     }
 
-// Method - 2 
+// Method - 2 (using 1D arrays)
