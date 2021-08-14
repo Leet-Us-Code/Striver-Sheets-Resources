@@ -18,7 +18,7 @@ This is a painstaking effort of both **mine** and my very good friend + coding b
 
 ## 💗 Contributions
 I'll always work on my DSA skills, so expect this repo to get updated constantly. 
-- Time and space complexities haven't been added for most questions, so if you want to start your open-source journey from here, you are most welcome to! 
+- Time and space complexities haven't been added for some questions, so if you want to start your open-source journey from here, you are most welcome to! 
 - Also, if you have a better (and tested) implementation for any problem, feel free to add. I review PRs frequently 🤓
 
 ## 📝 Resource Used 
